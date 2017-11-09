@@ -8,11 +8,10 @@
 ##    print line
 ##  end
 #end
-##Dealer,d0,d1,d2,d3,d4,d5,d6,p1_name,p1_0,p1_1,p1_2,p1_3,p1_4,p1_5,p2_name,p2_0,p2_1,p2_2,p2_3,p2_4,p2_5,p3_name,p3_0,p3_1,p3_2,p3_3,p3_4,p3_5,p4_name,p4_0,p4_1,p4_2,p4_3,p4_4,p4_5,p5_name,p5_0,p5_1,p5_2,p5_3,p5_4,p5_5,p6_name,p6_0,p6_1,p6_2,p6_3,p6_4,p6_5,
+##Dealer,d0,d1,d2,d3,d4,p1_name,p1_0,p1_1,p1_2,p1_3,p1_4,p1_game,p2_name,p2_0,p2_1,p2_2,p2_3,p2_4,p2_game,p3_name,p3_0,p3_1,p3_2,p3_3,p3_4,p3_game,p4_name,p4_0,p4_1,p4_2,p4_3,p4_4,p4_game,p5_name,p5_0,p5_1,p5_2,p5_3,p5_4,p5_game,p6_name,p6_0,p6_1,p6_2,p6_3,p6_4,p6_game
+
 
 require 'csv'
-
-
 class Deck
   def initialize
     @burst_value =22
@@ -69,20 +68,18 @@ end
 
 puts "@RELATION blackjack"
 puts "@ATTRIBUTE dealer_card	    REAL"
-puts "@ATTRIBUTE player1_card_sum    REAL"
+puts "@ATTRIBUTE player1_card_sum   REAL"
 puts "@ATTRIBUTE stand_hit          REAL"
-puts "@ATTRIBUTE player2_card_1    REAL"
-puts "@ATTRIBUTE player2_card_2    REAL"
-puts "@ATTRIBUTE player3_card_1    REAL"
-puts "@ATTRIBUTE player3_card_2    REAL"
-puts "@ATTRIBUTE player4_card_1    REAL"
-puts "@ATTRIBUTE player4_card_2    REAL"
-puts "@ATTRIBUTE player5_card_1    REAL"
-puts "@ATTRIBUTE player5_card_2    REAL"
-puts "@ATTRIBUTE player6_card_1    REAL"
-puts "@ATTRIBUTE player6_card_2    REAL"
-
-
+puts "@ATTRIBUTE player2_card_1     REAL"
+puts "@ATTRIBUTE player2_card_2     REAL"
+puts "@ATTRIBUTE player3_card_1     REAL"
+puts "@ATTRIBUTE player3_card_2     REAL"
+puts "@ATTRIBUTE player4_card_1     REAL"
+puts "@ATTRIBUTE player4_card_2     REAL"
+puts "@ATTRIBUTE player5_card_1     REAL"
+puts "@ATTRIBUTE player5_card_2     REAL"
+puts "@ATTRIBUTE player6_card_1     REAL"
+puts "@ATTRIBUTE player6_card_2     REAL"
 
 
 puts "@ATTRIBUTE class 	{WIN,DRAW,LOSE}"
@@ -90,14 +87,14 @@ puts "@ATTRIBUTE class 	{WIN,DRAW,LOSE}"
 puts "@DATA"
 #csv_data = CSV.read("./training.csv",headers: true)
 #csv_data = CSV.read("./training_thr12.csv",headers: true)
-csv_data = CSV.read("./training_thr12_2.csv",headers: true)
+csv_data = CSV.read("./Untitled",headers: true)
 #csv_data = CSV.read("./test_thr12.csv",headers: true)
 csv_data.each do |data|
 #  puts data["d0"]
   deck = Deck.new()
   #puts deck.getBurstCardNum(data["d0"])
   print deck.getCardIntValue(data["d0"]), ","
-#  print deck.getCardIntValue(data["p1_0"])
+  #  print deck.getCardIntValue(data["p1_0"])
   #  print deck.getCardIntValue(data["p1_1"]) 
   #  print(deck.getCardIntValue(data["p1_0"]) + deck.getCardIntValue(data["p1_1"]))
   print(deck.getCardIntValue(data["p1_0"]) + deck.getCardIntValue(data["p1_1"]))
@@ -113,6 +110,12 @@ csv_data.each do |data|
   print deck.getCardIntValue(data["p2_0"]) ,",", deck.getCardIntValue(data["p2_1"])
   print ","
   print deck.getCardIntValue(data["p3_0"]) ,",", deck.getCardIntValue(data["p3_1"])
+  print ","
+  print deck.getCardIntValue(data["p4_0"]) ,",", deck.getCardIntValue(data["p4_1"])
+  print ","
+  print deck.getCardIntValue(data["p5_0"]) ,",", deck.getCardIntValue(data["p5_1"])
+  print ","
+  print deck.getCardIntValue(data["p6_0"]) ,",", deck.getCardIntValue(data["p6_1"])
   print ","
   
   puts data["p1_game"] 
