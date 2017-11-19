@@ -87,8 +87,11 @@ puts "@ATTRIBUTE class 	{WIN,DRAW,LOSE}"
 puts "@DATA"
 #csv_data = CSV.read("./training.csv",headers: true)
 #csv_data = CSV.read("./training_thr12.csv",headers: true)
-csv_data = CSV.read("./Untitled",headers: true)
+#csv_data = CSV.read("./training_data_deck_1.csv",headers: true)
+#csv_data = CSV.read("./training_data_deck_2.csv",headers: true)
+#csv_data = CSV.read("./training_data_deck_default.csv",headers: true)
 #csv_data = CSV.read("./test_thr12.csv",headers: true)
+csv_data = CSV.read("./train-20171104-1.csv",headers: true)
 csv_data.each do |data|
 #  puts data["d0"]
   deck = Deck.new()
